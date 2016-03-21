@@ -18,7 +18,7 @@
         if(!($result = $mysqli->query($query))){
             echo "Error: Username does not exist. I'm not saving this.";
         } else{
-            $insert = "INSERT INTO Posts (content, author_id) VALUES ('$username', '$content')";
+            $insert = "INSERT INTO Posts (content, author_id) VALUES ('$content','$username')";
             if($tryThis = $mysqli->query($insert)){
                 echo "Welcome back ". $username ."!!! Your post was successfully saved.";
             } else{

@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>BRINGING DOWN THE HAMMER!</title>
+    </head>
+    <body>
+        <form action= "DeletePost.php" method = "post">
+            <?php
+                $mysqli = new mysqli("mysql.eecs.ku.edu", "lbutler", "embercat", "lbutler");
+                if($mysqli->connect_errno){
+                    printf("Connect failed: %s\n", $mysqli->connect_error);
+                    exit();
+                }
+                $query = "SELECT author_id, content, post_id FROM Posts";
+                if($result = $mysqli->query($query)){
+                    echo "Your delete options, Master.";
+                    echo "<br>";
+                    echo "<table border = "."1"." style = "."width: 100%>";
+                    echo "<tr>";
+                    echo "<th>";
+                    echo "Delete?";
+                    echo "</th>";
+                    echo "<th>";
+                    echo "Author";
+                    echo "</th>";
+                    echo "<th>";
+                    echo "Post content";
+                    echo "</th>";
+                    
+                    while($row = $result->fetch_assoc()){
+                        echo "<tr>";
+                        echo "<td>";
+                        echo "<input type='checkbox' name= 'Post[]' value = ". $row['post_id'] .">";
+                        echo "</td>";
+                        echo "<td>";
+                        echo $row['author_id'];
+                        echo "</td>";
+                        echo "<td>";
+                        echo $row['content'];
+                        echo "</td>";
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                }
+                ?>
+                <br>
+                <input type = "submit">
+        </form>
+    </body>
+</html>
