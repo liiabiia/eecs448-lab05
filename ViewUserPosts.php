@@ -24,7 +24,7 @@
         if(!($postsExist)){
             echo "<tr>";
             echo "<td>";
-            echo "User has no posts yet.";
+            echo "***User has no posts yet.***";
             echo "</td>";
             echo "</tr>";
         }
