@@ -19,5 +19,7 @@
             }
                 
         }
+        echo "<br>";
+        echo "If clicking back to html page, please refresh to see results.";
     }
 ?>
